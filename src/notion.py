@@ -99,13 +99,15 @@ def add_recommendation(recommended_book):
             response = notion.pages.create(
                 **notion_book_page
             )
-            if response.status_code == 200:
+            print(response)
+            # if the page got created successfully, it will have the page in the response object
+            if len(response):
                 return True
             else:
                 return False
         # if there is an exception while writing to the Notion database, flag as failure
         except errors.APIResponseError as error:
-            logging.exception("Updating Notion database failed because of exception %s"%(error.message))
+            logging.exception("Updating Notion database failed because of exception %s"%(error))
             return False
     # if there is no response from Google Books API, then flag as failure
     else:
