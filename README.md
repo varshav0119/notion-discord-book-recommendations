@@ -20,7 +20,8 @@ Follow the instructions [here](https://realpython.com/how-to-make-a-discord-bot-
 Create a GCP project and get your **Google Books API credentials** by following [these](https://developers.google.com/books/docs/v1/using) instructions.
 
 ### Running the Bot
-1. Clone this repository locally: `git clone hhttps://github.com/FruitVodka/notion-discord-book-recommendations.git`
+1. Clone this repository locally:  
+ `git clone hhttps://github.com/FruitVodka/notion-discord-book-recommendations.git`
 3. Add the credentials from the previous sections to a `.env` file in `src` folder; the file should look like:
 ```
 DISCORD_TOKEN={discord-bot-token}
@@ -29,8 +30,10 @@ NOTION_TOKEN={notion-integration-token}
 DATABASE_ID={notion-database-id}
 BOOKS_API_KEY={google-books-api-key}
 ```
-4. Install the requirements in `requirements.txt` by running the command `pip3 install -r requirements.txt` in the project root directory
-5. Run `src/bot.py` - it contains the code that powers this Discord bot - using the command `python3 src/bot.py`
+4. Install the requirements in `requirements.txt` by running this command in the project root directory  
+`pip3 install -r requirements.txt`  
+5. Run `src/bot.py` - it contains the code that powers this Discord bot - using the command  
+ `python3 src/bot.py`
 
 ## Resources
 * [Notion API Documentation](https://developers.notion.com/reference/intro)
