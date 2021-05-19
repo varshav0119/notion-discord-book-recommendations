@@ -30,7 +30,7 @@ DATABASE_ID={notion-database-id}
 BOOKS_API_KEY={google-books-api-key}
 ```
 4. Install the requirements in `requirements.txt` by running the command `pip3 install -r requirements.txt` in the project root directory
-5. Run `bot.py` - it contains the code that powers this Discord bot
+5. Run `src/bot.py` - it contains the code that powers this Discord bot
 
 ## Resources
 * [Notion API Documentation](https://developers.notion.com/reference/intro)
