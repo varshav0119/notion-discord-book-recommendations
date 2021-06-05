@@ -4,16 +4,6 @@ from notion_client import Client, errors
 import json
 from books_api_util import get_book_details
 
-# transform Google Books API response to Notion Page
-# these properties are based on the Notion database used for this project, you can find a template in the README
-# the book details we will be using:
-# details : {
-#   title: (string) name of the book,
-#   authors: (array) authors,
-#   pageCount: (number) number of pages,
-#   averageRating: (number) rating on Google Books 0-5
-#   previewLink: (string) Google Books preview URL
-# }
 def is_valid(details_dict, key):
     return key in details_dict.keys()
 
@@ -59,6 +49,16 @@ def add_preview_link(details_dict, preview_link):
             }
     })
 
+# transform Google Books API response to Notion Page
+# these properties are based on the Notion database used for this project, you can find a template in the README
+# the book details we will be using:
+# details : {
+#   title: (string) name of the book,
+#   authors: (array) authors,
+#   pageCount: (number) number of pages,
+#   averageRating: (number) rating on Google Books 0-5
+#   previewLink: (string) Google Books preview URL
+# }
 def transform_book_details(details, db_id):
     logging.debug(details)
     notion_book_page = {
