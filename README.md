@@ -21,7 +21,7 @@ Create a GCP project and get your **Google Books API credentials** by following 
 
 ### Running the Bot
 1. Clone this repository locally:  
- `git clone hhttps://github.com/FruitVodka/notion-discord-book-recommendations.git`
+ `git clone https://github.com/FruitVodka/notion-discord-book-recommendations.git`
 3. Add the credentials from the previous sections to a `.env` file in `src` folder; the file should look like:
 ```
 DISCORD_TOKEN={discord-bot-token}
