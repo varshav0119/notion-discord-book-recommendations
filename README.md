@@ -6,6 +6,9 @@ This is a Discord bot that ports book recommendations from Discord to Notion. He
 
 This integration works using an unofficial Python SDK for the [Notion API](hhttps://developers.notion.com/), which can be found at [notion-sdk-py](https://github.com/ramnes/notion-sdk-py).
 
+## Tutorial
+For a more comprehensive explanation about this project, and better set-up instructions, visit this tutorial: [Making a Discord bot that talks to Notion](https://www.notion.so/Making-a-Discord-bot-that-talks-to-Notion-00954f62598943898e5829081e19e2fd#bbbfa6424d1b427c944c9e7824cc7031).
+
 ## Try it Yourself
 To test this Discord bot, you will need to set up a few things:
 
