@@ -37,6 +37,10 @@ BOOKS_API_KEY={google-books-api-key}
 `pip3 install -r requirements.txt`  
 5. Run `src/bot.py` - it contains the code that powers this Discord bot - using the command  
  `python3 src/bot.py`
+ 
+### Using the Bot
+1. `!add <book-name>` will look up the book-name on Google Books, and add the best match to the Notion database. If it cannot find a match, it will display a message saying adding failed.
+2. `!tma >book-name>` will look up the book-name on Google Books, and display the description of the book. Based on this, users can decide whether to add the book to the database using the previous command.
 
 ## Resources
 * [Notion API Documentation](https://developers.notion.com/reference/intro)
