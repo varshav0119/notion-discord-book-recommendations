@@ -6,6 +6,7 @@ import discord
 import random
 from dotenv import load_dotenv
 import notion
+from books_api_util import get_book_details
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -14,10 +15,12 @@ GUILD = os.getenv('DISCORD_GUILD')
 client = discord.Client()
 
 def parse_recommendation(message):
-    if not message.startswith("!add "):
-        return False
+    if message.startswith("!add"):
+        return ["add", message.split("!add ")[1]]
+    elif message.startswith("!tma"):
+        return ["desc", message.split("!tma")[1]]
     else:
-        return message.split("!add ")[1]
+        return [False, False]
 
 @client.event
 async def on_ready():
@@ -30,8 +33,8 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    recommended_book = parse_recommendation(message.content)
-    if recommended_book:
+    action, recommended_book = parse_recommendation(message.content)
+    if action=="add":
         print('Looking up your book recommendation!', recommended_book)
         success = notion.add_recommendation(recommended_book)
         if success:
@@ -41,9 +44,16 @@ async def on_message(message):
                 "We value your contribution :D"
             ]
             response = random.choice(encouraging_responses)
-            await message.reply(response, mention_author=False)
         else:
             response = "Oh no, looks like we couldn't update the list at this time ;_;"
-            await message.reply(response, mention_author=False)
+        await message.reply(response, mention_author=False)
+    elif action=="desc":
+        print('Finding Description!', recommended_book)
+        success = get_book_details(recommended_book)
+        if success:
+            response = success['description']
+        else:
+            response = "Sorry, couldn't find a description for the book at this moment"
+        await message.reply(response, mention_author=False)
 
 client.run(TOKEN)
